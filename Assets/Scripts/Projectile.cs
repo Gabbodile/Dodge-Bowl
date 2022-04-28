@@ -12,19 +12,13 @@ public class Projectile : MonoBehaviour
     
     }
 
-    /*private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Target"))
-        {
-            collision.gameObject.GetComponent<Target>().Hit();
-
-        }
         if (collision.gameObject.CompareTag("Enemy"))
         {
             collision.gameObject.GetComponent<Enemy>().Hit(damage);
 
         }
-        Destroy(gameObject);
-    }*/
+    }
 
 }
