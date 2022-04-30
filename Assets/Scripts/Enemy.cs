@@ -11,12 +11,24 @@ public class Enemy : MonoBehaviour
     NavMeshAgent agent;
 
     private void Start()
+    {   
+        agent = GetComponent<NavMeshAgent>();
+        StartCoroutine(Move());
+    }
+
+    IEnumerator Move()
     {
-        while (isDead == false)
+        Debug.Log("running");
+        Vector3 moveToPos = GetRandomPosition();
+        agent.SetDestination(moveToPos);
+        while (Vector3.Distance(transform.position, moveToPos) < 0.1f)
         {
-            agent = GetComponent<NavMeshAgent>();
-            agent.SetDestination(GetRandomPosition());
+            /*transform.position = Vector3.MoveTowards(transform.position, moveToPos, Time.deltaTime);
+            transform.rotation = Quaternion.LookRotation(moveToPos);*/
+            yield return null;
         }
+        yield return new WaitForSeconds(2);
+        StartCoroutine(Move());
     }
     public void Hit(int _damage)
     {
@@ -40,4 +52,6 @@ public class Enemy : MonoBehaviour
     {
         return new Vector3(Random.Range(minX, maxX), 0, Random.Range(minZ, maxZ));
     }
+
+
 }
