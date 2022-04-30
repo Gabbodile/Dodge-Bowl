@@ -53,5 +53,5 @@ public class Enemy : MonoBehaviour
         return new Vector3(Random.Range(minX, maxX), 0, Random.Range(minZ, maxZ));
     }
 
-
+    //public IEumerator to see if the enemy is on an Offensive or Defensive state. 
 }
