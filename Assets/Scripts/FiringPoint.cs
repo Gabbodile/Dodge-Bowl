@@ -28,6 +28,7 @@ public class FiringPoint : MonoBehaviour
 
     void Update()
     {
+        //Firing and grabbing ball object
         if (Input.GetButtonDown("Fire1"))
         {
             if (hasBall)
@@ -56,6 +57,7 @@ public class FiringPoint : MonoBehaviour
         }
     }
 
+    //This is to grab the closest ball to the player
     Transform GetClosestBall(List<Transform> _balls)
     {
         Transform bestTarget = null;
