@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public enum playerState
-{
+public enum PlayerState
+{ 
     defence,
-    offence
+    offence 
 }
+
+//The IEunumerator wasn't working properly and could not figure out why it wasn't working as per normal. 
 public class Enemy : MonoBehaviour
 {
     public float minZ = 0, maxZ = 5, minX = -5, maxX = 5;
@@ -16,11 +18,16 @@ public class Enemy : MonoBehaviour
     NavMeshAgent agent;
     private object projectile;
 
+    public PlayerState playerState; 
+
     private void Start()
     {   
         //Random movement in the set coordinates
         agent = GetComponent<NavMeshAgent>();
         StartCoroutine(Move());
+
+        //PlayerState
+        playerState = global::PlayerState.defence;
     }
 
     IEnumerator Move()
@@ -37,6 +44,22 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(2);
         StartCoroutine(Move());
     }
+
+    /*public IEumerator to see if the enemy is on an Offensive or Defensive state. 
+    void PlayerState()
+    {
+        switch (playerState)
+        {
+            case PlayerState.defence:
+                StartCoroutine(Move());
+                break;
+
+            case PlayerState.offence:
+                
+                break;
+        }
+    }*/
+
     public void Hit(int _damage)
     {
 
@@ -54,10 +77,10 @@ public class Enemy : MonoBehaviour
             GameEvents.ReportEnemyHit(this);
         }
 
-        if (playerState offence)
+        /*if (playerState = PlayerState.offence)
         {
             return;
-        }
+        }*/
     }
 
     Vector3 GetRandomPosition()
@@ -65,38 +88,21 @@ public class Enemy : MonoBehaviour
         return new Vector3(Random.Range(minX, maxX), 0, Random.Range(minZ, maxZ));
     }
 
-    //public IEumerator to see if the enemy is on an Offensive or Defensive state. 
-    public IEnumerator PlayerState()
-    {
-        switch(state)
-        {
-            case playerState defence:
-                StartCoroutine(Move());
-                break;
-
-            case playerState offence:
-                //move to ball
-                //Are we close to ball?
-                //Pick up ball
-                //throw at player
-                break;
-        }
-    }
-
+     
     //Velocity and Position of ball
-    private void Update()
+    /*private void Update()
     {
-        
-        if (GameObject.Find("BowlingBall").transform.position = Vector3(Random.Range(minX, maxX), 0, Random.Range(minZ, maxZ)))
+
+        if (GameObject.Find("BowlingBall").transform.position = Vector3.(Random.Range(minX, maxX), 0, Random.Range(minZ, maxZ)))
         {
             if (GameObject.Find("BowlingBall").GetComponent<Rigidbody>().velocity.magnitude < 1)
             {
-                playerState offence;
+                playerState = PlayerState.offence;
+            }
+            else
+            {
+                playerState = PlayerState.defence;
             }
         }
-        else
-        {
-            playerState defence;
-        }
-    }
+    }*/
 }
