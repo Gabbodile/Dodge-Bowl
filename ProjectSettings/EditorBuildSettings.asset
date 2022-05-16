@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level 1.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Title.unity
+    guid: 15884338fd237874baa6d4d8f7cb0996
+  - enabled: 1
+    path: Assets/Scenes/Free Bowling.unity
+    guid: 708a36513dd27e94dad14876cdb37bbc
   m_configObjects: {}

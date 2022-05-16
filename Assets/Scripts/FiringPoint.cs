@@ -51,8 +51,6 @@ public class FiringPoint : MonoBehaviour
                     projectile.GetComponent<Renderer>().material.color = holdingColor;
                 }
             }
-           /* GameObject projectileInstance;
-            projectileInstance = Instantiate(projectilePrefab, firingPoint.position, firingPoint.rotation);*/
 
         }
     }
@@ -75,31 +73,4 @@ public class FiringPoint : MonoBehaviour
         }
         return bestTarget;
     }
-    /*void FixedUpdate()
-    {
-        Vector3 pos = new Vector3(firingPoint.position.x, firingPoint.position.y, firingPoint.position.z);
-        if (Input.GetButton("Fire2"))
-        {
-
-
-            Ray ray = new Ray(transform.position, transform.forward);
-            RaycastHit hit;
-
-            Vector3 rayEnd = firingPoint.TransformDirection(Vector3.forward * 100);
-
-            if (Physics.Raycast(ray, out hit, 50, layerMask))
-            {
-                laser.SetPosition(1, hit.point);
-                Destroy(hit.collider.gameObject);
-            }
-        }
-        if (Input.GetButtonUp("Fire2"))
-        {
-            laser.SetPosition(0, pos);
-            laser.SetPosition(1, pos);
-        }
-
-        Debug.DrawRay(transform.position, transform.forward, Color.blue);
-
-    }*/
 }

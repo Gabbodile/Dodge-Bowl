@@ -9,7 +9,8 @@ public enum PlayerState
     offence 
 }
 
-//The IEunumerator wasn't working properly and could not figure out why it wasn't working as per normal. 
+//The IEunumerator wasn't working properly. Many errors occurred and couldn't understand why
+
 public class Enemy : MonoBehaviour
 {
     public float minZ = 0, maxZ = 5, minX = -5, maxX = 5;
@@ -18,8 +19,6 @@ public class Enemy : MonoBehaviour
     NavMeshAgent agent;
     private object projectile;
 
-    public PlayerState playerState; 
-
     private void Start()
     {   
         //Random movement in the set coordinates
@@ -27,7 +26,7 @@ public class Enemy : MonoBehaviour
         StartCoroutine(Move());
 
         //PlayerState
-        playerState = global::PlayerState.defence;
+        //playerState = PlayerState.defence;
     }
 
     IEnumerator Move()
@@ -45,8 +44,8 @@ public class Enemy : MonoBehaviour
         StartCoroutine(Move());
     }
 
-    /*public IEumerator to see if the enemy is on an Offensive or Defensive state. 
-    void PlayerState()
+    //public IEumerator to see if the enemy is on an Offensive or Defensive state. 
+    /*IEnumerator PlayerStateCoroutine()
     {
         switch (playerState)
         {
@@ -55,7 +54,7 @@ public class Enemy : MonoBehaviour
                 break;
 
             case PlayerState.offence:
-                
+                    
                 break;
         }
     }*/

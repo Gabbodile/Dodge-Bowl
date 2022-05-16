@@ -48,4 +48,18 @@ public class PlayerController : MonoBehaviour
         currentYRotation = Mathf.SmoothDamp(currentYRotation, yRotation, ref yRotationV, lookSmoothness);
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
     }
+
+    /*void SetCountText()
+    {
+        countText.text = "Count: " + count.ToString();
+        if (count >= pickupCount)
+        {
+            WinGame();
+        }
+    }
+    public void PinFall()
+    {
+        count += 1;
+        SetCountText();
+    }*/
 }

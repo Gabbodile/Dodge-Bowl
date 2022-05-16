@@ -4,14 +4,28 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-    public List<GameObject> enemies;
+    public List<GameObject> enemy;
+    /*public Transform[] spawnPoints;
+
+    //Respawning of enemies after enemy is dead
+    void SpawnEnemy()
+    {
+        if (enemy.Count == 0)
+        {
+            for (int i = 0; i < spawnPoints.Length; i++)
+            {
+                Instantiate(enemy, spawnPoints[i].position, spawnPoints[i].rotation);
+            }
+        }
+    }*/
+
     public void KillEnemy(GameObject _enemy)
     {
-        if (enemies.Count == 0)
+        if (enemy.Count == 0)
             return;
 
         Destroy(_enemy, 2);
-        enemies.Remove(_enemy);
+        enemy.Remove(_enemy);
     }
 
     void OnEnemyDied(Enemy _enemy)
